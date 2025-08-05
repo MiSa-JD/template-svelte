@@ -57,8 +57,10 @@
 <script lang='ts'>
   import Codemirror from "$lib/components/codemirror/codemirror.svelte"
 
+  import { PUBLIC_API_HOST } from '$env/static/public';
+
   // 요청 
-  let url = 'http://localhost:8080/api/mybatis/texts'
+  let url = `${PUBLIC_API_HOST}/api/mybatis/members`
   let method = 'GET'
   let header:App.Header = { type:"content-type", value:"application/json" }
   let body:string = `{
