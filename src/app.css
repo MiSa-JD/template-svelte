@@ -1,3 +1,15 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@layer {
+  button {
+    @apply border px-5 rounded-xl;
+  }
+  button:hover {
+    @apply bg-neutral-100;
+  }
+  button:active {
+    @apply bg-neutral-200;
+  }
+}
