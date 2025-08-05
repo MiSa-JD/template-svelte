@@ -27,9 +27,9 @@
       </select>
     </div>
     <div class='flex flex-col'>
-      <b>Body:</b>
-      <!-- textarea -->
-      <textarea class='m-2 h-100 rounded-xl' bind:value={body}></textarea>
+      <Codemirror
+        bind:code={body}
+        className="text-lg h-dvh" />
     </div>
   </div>
   </form>
@@ -55,11 +55,16 @@
 </style>
 
 <script lang='ts'>
+  import Codemirror from "$lib/components/codemirror/codemirror.svelte"
+
   // 요청 
-  let url = 'http://localhost:8080/api/mybatis/members'
+  let url = 'http://localhost:8080/api/mybatis/texts'
   let method = 'GET'
   let header:App.Header = { type:"content-type", value:"application/json" }
-  let body:string
+  let body:string = `{
+  "id": 0,
+  "text": "string"
+}`
 
   // 응답
   let answer:string = ''
@@ -67,11 +72,15 @@
   const sendIt = async () => {
     try {
       console.log("fetching")
+      console.log(url)
+      console.log(method)
+      console.log(header)
+      console.log(body)
       const res = method === 'GET' ? await fetch(url)
       : await fetch(url, {
         method: method,
         headers: {
-
+          [header.type]: `${header.value}`,
         },
         body: body
       })
