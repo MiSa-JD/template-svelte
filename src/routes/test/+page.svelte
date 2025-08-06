@@ -60,7 +60,7 @@
   import { PUBLIC_API_HOST } from '$env/static/public';
 
   // 요청 
-  let url = `${PUBLIC_API_HOST}/api/mybatis/members`
+  let url = `${PUBLIC_API_HOST}/api/mybatis/texts`
   let method = 'GET'
   let header:App.Header = { type:"content-type", value:"application/json" }
   let body:string = `{

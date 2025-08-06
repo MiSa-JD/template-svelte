@@ -28,6 +28,9 @@
 		"@codemirror/commands": "^6.8.1",
 		"@codemirror/lang-json": "^6.0.2",
 		"@codemirror/language": "^6.11.2",
-		"codemirror": "^6.0.2"
+		"codemirror": "^6.0.2",
+		"fs": "^0.0.1-security",
+		"fs-extra": "^11.3.1",
+		"path": "^0.12.7"
 	}
 }
