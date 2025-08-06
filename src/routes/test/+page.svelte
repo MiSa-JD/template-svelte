@@ -23,6 +23,8 @@
       <select name='Method' bind:value={method}>
         <option value='GET'>GET</option>
         <option value='POST'>POST</option>
+        <option value='PUT'>PUT</option>
+        <option value='DELETE'>DELETE</option>
         <option value='HEAD'>HEAD</option>
       </select>
     </div>
