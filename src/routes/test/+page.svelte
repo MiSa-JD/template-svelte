@@ -76,7 +76,7 @@
   const sendIt = async () => {
     try {
       console.log("fetching..")
-      const res = needHeader(method) || header.type.length < 1 ? await fetch(url, { method: method })
+      const res = !needHeader(method) || header.type.length < 1 ? await fetch(url, { method: method })
       : await fetch(url, {
         method: method,
         headers: {
