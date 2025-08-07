@@ -58,7 +58,7 @@
 
 <script lang='ts'>
   import Codemirror from "$lib/components/codemirror/codemirror.svelte"
-
+  import { needHeader } from "../utils/ForFetch";
   import { PUBLIC_API_HOST } from '$env/static/public';
 
   // 요청 
@@ -75,20 +75,16 @@
 
   const sendIt = async () => {
     try {
-      console.log("fetching")
-      console.log(url)
-      console.log(method)
-      console.log(header)
-      console.log(body)
-      const res = method === 'GET' ? await fetch(url)
+      console.log("fetching..")
+      const res = needHeader(method) || header.type.length < 1 ? await fetch(url, { method: method })
       : await fetch(url, {
         method: method,
         headers: {
           [header.type]: `${header.value}`,
         },
         body: body
-      })
-
+      })//.then(val => val.json())
+      //.then(val => answer = JSON.stringify(val, null, 2)) // fetch then은 
       const data = await res.json()
       answer = JSON.stringify(data, null, 2)
     } catch (err) {
